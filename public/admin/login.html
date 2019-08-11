@@ -22,8 +22,45 @@
         <label for="password" class="sr-only">密码</label>
         <input id="password" type="password" class="form-control" placeholder="密码">
       </div>
-      <button class="btn btn-primary btn-block">登 录</button>
+      <button class="btn btn-primary btn-block" id="login">登 录</button>
     </div>
   </div>
+  <script src="../assets/vendors/jquery/jquery.min.js"></script>
+  <script>
+    $(function(){
+      // 绑定事件
+      $('#login').on('click',function(){
+        // 获取邮箱输入文本
+        var email = $('#email').val()
+        // 获取密码输入文本
+        var password = $('#password').val()
+        // 判断文本值
+        if(email.trim().length == 0){
+          alert('请输入邮箱')
+          return false
+        }else if(password.trim().length == 0){
+          alert('请输入密码')
+          return false
+        }
+        // 发送ajax请求
+        $.ajax({
+          type: 'post',
+          url: '/login',
+          data: {
+            email: email,
+            password: password
+          },
+          success: function(data){
+            // 登录成功跳转到index页面
+            location.href =  'index.html'
+          },
+          error: function(data){
+            alert('邮箱或密码输入错误')
+          }
+        })
+      })
+    })
+
+  </script>
 </body>
 </html>
