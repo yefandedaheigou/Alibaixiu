@@ -59,6 +59,38 @@
           }
         })
       })
+      $(document).on('keyup',function(e){
+          if(e.keyCode == 13){
+              // 获取邮箱输入文本
+          var email = $('#email').val()
+          // 获取密码输入文本
+          var password = $('#password').val()
+          // 判断文本值
+          if(email.trim().length == 0){
+            alert('请输入邮箱')
+            return false
+          }else if(password.trim().length == 0){
+            alert('请输入密码')
+            return false
+          }
+          // 发送ajax请求
+          $.ajax({
+            type: 'post',
+            url: '/login',
+            data: {
+              email: email,
+              password: password
+            },
+            success: function(data){
+              // 登录成功跳转到index页面
+              location.href =  'index.html'
+            },
+            error: function(data){
+              alert('邮箱或密码输入错误')
+            }
+          })
+        } 
+      })
     })
 
   </script>
