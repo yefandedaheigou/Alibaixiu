@@ -1,3 +1,5 @@
+<!-- ajax是异步请求 不能先判断再拦截继续向下执行 -->
+<!-- script的scr属性也可以发送ajax请求  但是src是同步 可以拦截向下执行 -->
 <script src="/login/status"></script>
 <script>
     if(!isLogin) location.href = 'login.html'
@@ -21,7 +23,7 @@
       <button class="btn btn-default navbar-btn fa fa-bars"></button>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="profile.html"><i class="fa fa-user"></i>个人中心</a></li>
-        <li><a href="login.html"><i class="fa fa-sign-out"></i>退出</a></li>
+        <li><a href="JavaScript:;" id="logout"><i class="fa fa-sign-out"></i>退出</a></li>
       </ul>
     </nav>
     <div class="container-fluid">
@@ -89,8 +91,6 @@
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script>NProgress.done()</script>
-  <script>
-    
-  </script>
+  <script src="../assets/js/commen.js"></script>
 </body>
 </html>
