@@ -8,7 +8,7 @@ $('#modifyForm').on('submit', function(){
       data: formData,
       success: function(data){
          $('.alert').html(data.message)
-         $('.alert').show()
+         $('.alert').fadeIn(500)
          setTimeout(function(){
             location.href = 'login.html'
          },2000)
