@@ -82,6 +82,9 @@
               password: password
             },
             success: function(data){
+              if(data.role == 'admin'){
+                location.href = 'admin/index.html'
+              }
               // 登录成功跳转到index页面
               location.href =  'index.html'
             },

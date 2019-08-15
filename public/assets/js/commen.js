@@ -16,3 +16,14 @@ $(function(){
       }
    })
 })
+
+// 向服务器获取用户信息
+$.ajax({
+   type: 'get',
+   url: '/users/' + userId,
+   success: function(data){
+      console.log(data);
+      $('.avatar').attr('src',data.avatar)
+      $('.name').html(data.nickName)
+   }
+})

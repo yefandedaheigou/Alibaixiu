@@ -20,8 +20,10 @@ $('#userForm').on('submit', function(){
 $('#modifyBox').on('change', '#avatar', function(){
    // 创建一个空的表单对象
    var formData = new FormData()
-   // 给表单对象添加属性和属性值
+   // 给表单对象添加属性和属性值 this.files[0]选择的文件
    formData.append('avatar', this.files[0])
+   console.log(formData);
+   
    $.ajax({
       type: 'post',
       url: '/upload',
